@@ -11,7 +11,7 @@ app.use('/api/subway' , TrainRouter);
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 /**
  * @swagger
