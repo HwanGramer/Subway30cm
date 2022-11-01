@@ -16,8 +16,10 @@ const OneStationTrain = require('./TrainController/OneStationTrain');
 
 //! 시간복잡도 API는 열차도착시간같은거 일단 없음.. 왜냐 그거추가하면 API 4개요청해야됨 ..
 
+
 TrainRouter.get('/one/:stationName/:way/:fest' , OneStationTrain.OneStation); //? 시간복잡도 API
 //* 완성 
+
 
 TrainRouter.get('/two/:stationName/:way' , TwoStaionTrain.TwoStation); //? 실시간요청가능 API
 //* 완성
