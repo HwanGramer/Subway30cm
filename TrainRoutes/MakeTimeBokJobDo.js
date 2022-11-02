@@ -54,13 +54,8 @@ module.exports = (stationCode , way , start , end , fest)=>{ //? 역코드 , 방
                 if(carData.length > 0){ //? 칸별데이터가 성공적으로 나왔다면 이제 칸별 , 평균데이터를 합쳐서 보내주자
                     return {
                         suc : true,
-                        data : {
-                            BokJobDo : {
-                                suc : true,
-                                aver : trainBokjobdo.congestionTrain,
-                                line : carData[0].data[minutes].congestionCar
-                            }
-                        }
+                        aver : trainBokjobdo.congestionTrain,
+                        line : carData[0].data[minutes].congestionCar
                     }
                 }else{ //? 칸별 데이터가 없다면
                     return { 

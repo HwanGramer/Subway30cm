@@ -2,12 +2,14 @@ const axios = require('axios');
 const {LIVE_STATION} = require('../config/API');
 
 //? 호선번호 , 역이름 , 하행인지상행인지
-module.exports ={ findStation : (subWayNum,stationName,way)=>{ //? 실시간 호선에 맞는 열차찾기 모듈
+module.exports ={ findStation : (subWayNum,stationName,way , fest = null)=>{ //? 실시간 호선에 맞는 열차찾기 모듈
     return axios.get(LIVE_STATION+stationName).then((res)=>{
         
         const arrivalSubway = res.data.realtimeArrivalList.filter((element)=>{ //? 동명인 역이름 거르기 
-            return (element.subwayId == subWayNum) && (element.updnLine == way);
+            return (element.subwayId == subWayNum) && (element.updnLine == way) && (element.btrainSttus == fest)
         }) 
+
+        console.log(res.data);
 
         const result = {
             //? 데이터 가공 
