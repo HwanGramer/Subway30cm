@@ -23,8 +23,8 @@ module.exports = {
             return res.json(LiveStation);
                                                     //?역코드 , 방향 , 시작역 , 종착역 , 급행여부
        }else{ //! ----> 소요산 - 구로 , 경인선
-            const start = fest == 0 ? (req.params.way === '상행' ? '인천역' : '소요산역') : (req.params.way === '상행' ? '인천역' : '동두천역'); //?급행여부에 맞는 일반열차에 상행이라면 중앙보훈병에서 개화로 출발.
-            const end = fest == 0 ? (req.params.way === '상행' ? '소요산역' : '인천역') : (req.params.way === '상행' ? '동두천역' : '인천역');
+            const start = fest == 0 ? (req.params.way === '상행' ? '인천역' : '소요산역') : (req.params.way === '상행' ? '동인천역' : '용산역'); //?급행여부에 맞는 일반열차에 상행이라면 중앙보훈병에서 개화로 출발.
+            const end = fest == 0 ? (req.params.way === '상행' ? '소요산역' : '인천역') : (req.params.way === '상행' ? '용산역' : '동인천역');
             // console.log(start + '->' + end + '급형여부 : ' + fest + '방향 : ' + wayNum);
             const TimeBokJobDo = await MakeTimeBokJobDo(StationCode[0].FR_CODE , wayNum , start , end, fest); 
                                                     //?역코드 , 방향 , 시작역 , 종착역 , 급행여부
