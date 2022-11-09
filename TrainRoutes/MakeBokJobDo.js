@@ -2,6 +2,7 @@
 
 const axios = require('axios');
 const {BOKJOBDO,BOKJOBDO_KEY} = require('../config/API');
+const RbokJobDo = require('./RbokJobDo');
 
 module.exports = (line , trainNumber)=>{
     return axios.get(`${BOKJOBDO}${line}/${trainNumber}`, { //? 복잡도 요청 
@@ -17,10 +18,6 @@ module.exports = (line , trainNumber)=>{
             line : lineBokJob, //?라인별 복잡도
         }
     }).catch((err)=>{
-        return { 
-            suc : false,
-            aver : '준비중입니다',
-            line : '준비중입니다'
-        }
+        return RbokJobDo.Rbokjobdo();
     })
 }

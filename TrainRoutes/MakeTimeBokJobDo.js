@@ -6,7 +6,7 @@
 
 const axios = require('axios');
 const {TRAINTIMEBOKJOBDO , BOKJOBDO_KEY , CARTIMEBOKJOBDO} = require('../config/API');
-
+const RbokJobDo = require('./RbokJobDo');
 const WEEK = {
     0 : 'SUN',
     1 : 'MON',
@@ -57,26 +57,13 @@ module.exports = (stationCode , way , start , end , fest)=>{ //? 역코드 , 방
                         line : carData[0].data[minutes].congestionCar
                     }
                 }else{ //? 칸별 데이터가 없다면
-                    return { 
-                        suc : false,
-                        aver : '준비중입니다',
-                        line : '준비중입니다'
-                    }
+                    return RbokJobDo.Rbokjobdo();
                 }
             })
         }else{
-            return { 
-                suc : false,
-                aver : '준비중입니다',
-                line : '준비중입니다'
-            }
+            return RbokJobDo.Rbokjobdo();
         }
     }).catch((err)=>{
-        console.log(err);
-        return { 
-            suc : false,
-            aver : '준비중입니다',
-            line : '준비중입니다'
-        }
+        return RbokJobDo.Rbokjobdo();
     })
 }
