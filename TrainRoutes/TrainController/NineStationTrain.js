@@ -15,7 +15,6 @@ module.exports = {
        const start = fest == 0 ? (req.params.way === '상행' ? '중앙보훈병원역' : '개화역') : (req.params.way === '상행' ? '중앙보훈병원역' : '김포공항역'); //?급행여부에 맞는 일반열차에 상행이라면 중앙보훈병에서 개화로 출발.
        const end = fest == 0 ? (req.params.way === '상행' ? '개화역' : '중앙보훈병원역') : (req.params.way === '상행' ? '김포공항역' : '중앙보훈병원역');
 
-       console.log(start + '->' + end + '급형여부 : ' + fest + '방향 : ' + wayNum);
        
        const TimeBokJobDo = await MakeTimeBokJobDo(StationCode[0].FR_CODE , wayNum , start , end, fest); 
                                                 //?역코드 , 방향 , 시작역 , 종착역 , 급행여부

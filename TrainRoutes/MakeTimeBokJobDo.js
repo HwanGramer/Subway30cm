@@ -32,7 +32,6 @@ module.exports = (stationCode , way , start , end , fest)=>{ //? 역코드 , 방
     }
     }).then((res)=>{
         //? 0 : 상행 , 1 : 하행
-        console.log(start + '->' + end)
         const data = res.data.contents.stat.filter((element)=>{
             return element.updnLine == way && element.directAt == fest && element.startStationName == start && element.endStationName == end; 
         });

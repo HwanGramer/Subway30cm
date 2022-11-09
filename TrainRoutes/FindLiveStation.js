@@ -9,8 +9,6 @@ module.exports ={ findStation : (subWayNum,stationName,way , fest = null)=>{ //?
             return (element.subwayId == subWayNum) && (element.updnLine == way) && (element.btrainSttus == fest)
         }) 
 
-        console.log(res.data);
-
         const result = {
             //? 데이터 가공 
             suc : true,
